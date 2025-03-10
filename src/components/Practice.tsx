@@ -121,8 +121,8 @@ export default function Practice({ lines }: PracticeProps) {
         </button>
       )}
 
-      {/* Give Up button appears after Start */}
-      {hasStarted && !hasGivenUp && (
+      {/* Show "Give Up" or "Try Again" buttons depending on the state */}
+      {hasStarted && !hasGivenUp && currentIndex < lines.length && (
         <button
           className="mt-2 p-2 bg-gray-500 text-white rounded"
           onClick={giveUp}
@@ -131,9 +131,18 @@ export default function Practice({ lines }: PracticeProps) {
         </button>
       )}
 
+      {hasStarted && currentIndex === lines.length && !hasGivenUp && (
+        <button
+          className="mt-2 p-2 bg-red-500 text-white rounded"
+          onClick={tryAgain}
+        >
+          Try Again
+        </button>
+      )}
+
       {hasGivenUp && (
         <div className="mt-4">
-          <h3 className="text-xl font-bold text-black">Here is the full text:</h3>
+          <h3 className="text-xl font-bold text-black">You gave up! Here is the full text:</h3>
           {lines.map((line, index) => (
             <p key={index} className="text-black">{line}</p>
           ))}
