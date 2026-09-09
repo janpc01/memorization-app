@@ -10,16 +10,27 @@ export default function MemorizationApp() {
   const [practiceMode, setPracticeMode] = useState<boolean>(false);
 
   const startPractice = () => {
-    setLines(inputText.split("\n").map(line => line.trim())); // Trim whitespace
+    const parsedLines = inputText
+      .split("\n")
+      .map((line) => line.trim())
+      .filter((line) => line.length > 0);
+
+    if (parsedLines.length === 0) return;
+
+    setLines(parsedLines);
     setPracticeMode(true);
+  };
+
+  const newText = () => {
+    setPracticeMode(false);
   };
 
   return (
     <div className="p-4 max-w-lg mx-auto">
-      {!practiceMode ? (
-        <TextInput inputText={inputText} setInputText={setInputText} startPractice={startPractice} />
+      {practiceMode ? (
+        <Practice lines={lines} onNewText={newText} />
       ) : (
-        <Practice lines={lines} />
+        <TextInput inputText={inputText} setInputText={setInputText} startPractice={startPractice} />
       )}
     </div>
   );

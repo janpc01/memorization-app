@@ -7,6 +7,8 @@ interface TextInputProps {
 }
 
 export default function TextInput({ inputText, setInputText, startPractice }: TextInputProps) {
+  const hasText = inputText.trim().length > 0;
+
   return (
     <div>
       <textarea
@@ -16,18 +18,13 @@ export default function TextInput({ inputText, setInputText, startPractice }: Te
         value={inputText}
         onChange={(e) => setInputText(e.target.value)}
       />
-      <button className="mt-2 p-2 bg-blue-500 text-white rounded" onClick={startPractice}>
+      <button
+        className="mt-2 p-2 bg-blue-500 text-white rounded disabled:opacity-50"
+        onClick={startPractice}
+        disabled={!hasText}
+      >
         Start Practice
       </button>
     </div>
   );
 }
-
-// If you can keep your head when all about you   
-// Are losing theirs and blaming it on you,   
-// If you can trust yourself when all men doubt you,
-// But make allowance for their doubting too;   
-// If you can wait and not be tired by waiting,
-// Or being lied about, don't deal in lies,
-// Or being hated, don't give way to hating,
-// And yet don't look too good, nor talk too wise:

@@ -1,5 +1,3 @@
-"use client";
-
 import MemorizationApp from "../components/MemorizationApp";
 
 export default function Home() {

@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Memorization App
 
-## Getting Started
+A small Next.js app for memorizing text one line at a time. Paste in a passage,
+then retype it line by line against a running timer.
 
-First, run the development server:
+## How it works
+
+1. Paste or type the text you want to memorize, then press **Start Practice**.
+   The timer starts immediately. Blank lines are ignored and each line is trimmed.
+2. Type each line and press Enter. A correct line is added to the list above the
+   input and the next line is expected. An incorrect line does nothing.
+3. Finish every line to see your total time, or press **Give Up** to reveal the
+   full text.
+4. **Try Again** restarts the run with the same text and a fresh timer, and
+   **New Text** returns to the editor with your text still loaded.
+
+## Try it out locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
