@@ -3,6 +3,8 @@
 A small Next.js app for memorizing text one line at a time. Paste in a passage,
 then retype it line by line against a running timer.
 
+Deployed at [memorization-app.verce.app](https://memorization-app.vercel.app/) 
+
 ## How it works
 
 1. Paste or type the text you want to memorize, then press **Start Practice**.

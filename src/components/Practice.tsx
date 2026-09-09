@@ -58,11 +58,13 @@ export default function Practice({ lines, onNewText }: PracticeProps) {
 
   return (
     <div>
-      <div className="border p-2 min-h-[100px] bg-gray-100 rounded">
-        {lines.slice(0, currentIndex).map((line, index) => (
-          <p key={index} className="text-green-700">{line}</p>
-        ))}
-      </div>
+      {!hasGivenUp && (
+        <div className="border p-2 min-h-[100px] bg-gray-100 rounded">
+          {lines.slice(0, currentIndex).map((line, index) => (
+            <p key={index} className="text-green-700">{line}</p>
+          ))}
+        </div>
+      )}
 
       {isTimerRunning && (
         <p className="mt-2 text-gray-600">Time: {elapsedTime.toFixed(1)} seconds</p>
